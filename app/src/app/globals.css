@@ -1,0 +1,352 @@
+@import "tailwindcss";
+
+/* ===== TECH-PRECISION DESIGN SYSTEM ===== */
+/* Cyber-Sophistication Theme - Dark Mode Only */
+
+:root {
+  /* Primary Colors */
+  --color-base: #000000;
+  --color-surface: #1A1A1A;
+  --color-surface-elevated: #252525;
+
+  /* Accent Colors */
+  --color-accent-primary: #007BFF;
+  --color-accent-secondary: #00F2FF;
+
+  /* Typography Colors */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A0A0A0;
+
+  /* Effects */
+  --glow-cyan: 0 0 20px rgba(0, 242, 255, 0.5);
+  --glow-blue: 0 0 20px rgba(0, 123, 255, 0.5);
+
+  /* Spacing */
+  --section-padding: clamp(3rem, 8vw, 6rem);
+
+  /* Transitions */
+  --transition-fast: 200ms ease-out;
+  --transition-medium: 400ms ease-out;
+}
+
+
+/* ===== BASE STYLES ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-body, 'Assistant', Arial, sans-serif);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans, 'Heebo', Arial, sans-serif);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* ===== GRADIENT TEXT ===== */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== GLASSMORPHISM ===== */
+.glass {
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all var(--transition-medium);
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 242, 255, 0.3);
+  box-shadow: var(--glow-cyan);
+  transform: translateY(-4px);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-family: var(--font-sans, 'Heebo', Arial, sans-serif);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+  color: var(--color-base);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-cyan), 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent-secondary);
+  color: var(--color-accent-secondary);
+  box-shadow: var(--glow-cyan);
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: var(--section-padding) 0;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(0, 242, 255, 0.6);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float-slow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes dot-pulse {
+
+  0%,
+  100% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.animate-dot-pulse {
+  animation: dot-pulse 4s ease-in-out infinite;
+}
+
+.dots-background {
+  background-image: radial-gradient(#00F2FF 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-forward {
+  0% {
+    transform: rotate(0deg) translateX(var(--orbit-radius));
+  }
+
+  100% {
+    transform: rotate(360deg) translateX(var(--orbit-radius));
+  }
+}
+
+@keyframes orbit-reverse {
+  0% {
+    transform: rotate(0deg) translateX(var(--orbit-radius));
+  }
+
+  100% {
+    transform: rotate(-360deg) translateX(var(--orbit-radius));
+  }
+}
+
+@keyframes counter-orbit-forward {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes counter-orbit-reverse {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-primary);
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background: var(--color-accent-primary);
+  color: var(--color-base);
+}
+
+/* ===== RTL SUPPORT ===== */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .container {
+  direction: rtl;
+}
