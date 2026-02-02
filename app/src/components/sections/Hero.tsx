@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 import { FlickeringGrid } from "../ui/FlickeringGrid";
 import { WordRotate } from "../ui/WordRotate";
+import Image from "next/image";
 
 
 const morphingTexts = [
@@ -51,17 +52,32 @@ export function Hero() {
                     animate={{ rotateY: currentRotation }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
-                    {[...Array(8)].map((_, i) => (
+                    {[
+                        "/hero/screenshot-1.png",
+                        "/hero/screenshot-2.png",
+                        "/hero/screenshot-3.png",
+                        "/hero/screenshot-4.png",
+                        "/hero/screenshot-1.png",
+                        "/hero/screenshot-2.png",
+                        "/hero/screenshot-3.png",
+                        "/hero/screenshot-4.png",
+                    ].map((src, i) => (
                         <div
                             key={i}
-                            className="absolute inset-0 bg-white/10 border-2 border-white/20 rounded-[3rem] flex items-center justify-center backdrop-blur-sm"
+                            className="absolute inset-0 bg-black/40 border-[1px] border-white/10 rounded-3xl overflow-hidden backdrop-blur-md group"
                             style={{
                                 transform: `rotateY(${i * 45}deg) translateZ(1148px)`,
                             }}
                         >
-                            <span className="text-white/30 font-black text-4xl tracking-widest uppercase">
-                                PLACEHOLDER
-                            </span>
+                            <Image
+                                src={src}
+                                alt={`Project ${i + 1}`}
+                                fill
+                                className="object-cover opacity-50 group-hover:opacity-100 transition-all duration-700 scale-100 group-hover:scale-110"
+                                sizes="(max-width: 842px) 100vw, 842px"
+                            />
+                            {/* Overlay glow */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
                         </div>
                     ))}
                 </motion.div>
