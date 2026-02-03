@@ -79,7 +79,7 @@ export function About() {
     ];
 
     return (
-        <section id="about" className="py-24 md:py-32 relative overflow-hidden">
+        <section id="about" className="py-16 md:py-24 relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 pointer-events-none">
                 {/* Pulsating Dotted Background */}
@@ -96,7 +96,7 @@ export function About() {
             <div className="container mx-auto px-6 relative">
                 {/* Centered Top Title - Balanced & Animated */}
                 <div className="text-center mb-8 sm:mb-10 transition-all duration-500">
-                    <div className="text-[7vw] sm:text-[6.5vw] md:text-[6vw] lg:text-[5.5vw] font-black bg-gradient-to-r from-[#007BFF] via-[#00F2FF] to-[#007BFF] bg-clip-text text-transparent inline-block tracking-tighter animate-gradient bg-[length:200%_auto] py-4 leading-none whitespace-nowrap">
+                    <div className="text-5xl sm:text-[6.5vw] md:text-[6vw] lg:text-[5.5vw] font-black bg-gradient-to-r from-[#007BFF] via-[#00F2FF] to-[#007BFF] bg-clip-text text-transparent inline-block tracking-tighter animate-gradient bg-[length:200%_auto] py-4 leading-none whitespace-normal sm:whitespace-nowrap">
                         איך זה קורה?
                     </div>
                 </div>
@@ -141,9 +141,9 @@ export function About() {
                     </div>
 
                     {/* Visual Side */}
-                    <div className="relative flex items-center justify-center">
+                    <div className="relative flex items-center justify-center w-full overflow-hidden">
                         {/* Main visual element - Enlarged */}
-                        <div className="relative flex h-[500px] w-[500px] items-center justify-center">
+                        <div className="relative flex h-[500px] w-[500px] items-center justify-center scale-[0.6] sm:scale-[0.8] md:scale-100 shrink-0">
                             {/* Outer orbit */}
                             <OrbitingCircles
                                 iconSize={56}

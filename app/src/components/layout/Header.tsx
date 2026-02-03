@@ -17,9 +17,8 @@ export function Header() {
     }, []);
 
     const navLinks = [
-        { href: "#services", label: "שירותים" },
-        { href: "#about", label: "אודות" },
-        { href: "#portfolio", label: "פרויקטים" },
+        { href: "#portfolio", label: "תיק עבודות" },
+        { href: "#about", label: "איך זה קורה" },
         { href: "#contact", label: "צור קשר" },
     ];
 
@@ -36,14 +35,19 @@ export function Header() {
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
                 {/* Logo - Right side for RTL */}
+                {/* Logo - Right side for RTL */}
                 <Link
-                    href="/"
+                    href="#hero"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
                     className="flex items-center gap-3 group"
                 >
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#007BFF] to-[#00F2FF] flex items-center justify-center group-hover:shadow-[0_0_20px_rgba(0,242,255,0.5)] transition-shadow">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#007BFF] to-[#00F2FF] flex items-center justify-center group-hover:shadow-[0_0_20px_rgba(0,242,255,0.5)] transition-shadow">
                         <span className="text-black font-black text-lg">TP</span>
                     </div>
-                    <span className="text-xl font-bold text-white hidden sm:block">
+                    <span className="text-2xl font-bold text-white hidden sm:block">
                         Tech<span className="text-[#00F2FF]">-</span>Precision
                     </span>
                 </Link>
@@ -59,7 +63,15 @@ export function Header() {
                             {link.label}
                         </Link>
                     ))}
-                    <Button size="sm">התחל פרויקט</Button>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                        className="bg-gradient-to-r from-[#007BFF] to-[#01F2FF] text-black font-bold px-6 py-2 rounded-xl text-sm transition-all hover:shadow-[0_0_20px_rgba(0,242,255,0.5)] hover:scale-105"
+                    >
+                        אני רוצה אתר!
+                    </button>
                 </nav>
 
                 {/* Mobile Menu Button */}
@@ -100,7 +112,16 @@ export function Header() {
                             {link.label}
                         </Link>
                     ))}
-                    <Button className="mt-4 w-full">התחל פרויקט</Button>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setMenuOpen(false); // Close menu on click
+                            document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                        className="bg-gradient-to-r from-[#007BFF] to-[#01F2FF] text-black font-bold px-6 py-2 rounded-xl text-sm transition-all text-center"
+                    >
+                        אני רוצה אתר!
+                    </button>
                 </nav>
             </div>
         </header>

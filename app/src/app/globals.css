@@ -318,6 +318,35 @@ p {
   }
 }
 
+@keyframes shine {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+  }
+
+  100% {
+    transform: translateX(150%) skewX(-25deg);
+  }
+}
+
+@keyframes background-shine {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-shine {
+  animation: shine 3s infinite;
+}
+
+.animate-background-shine {
+  background-size: 200% 100%;
+  animation: background-shine 3s linear infinite;
+}
+
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
   width: 8px;

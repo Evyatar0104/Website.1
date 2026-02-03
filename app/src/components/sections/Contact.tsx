@@ -59,7 +59,7 @@ export function Contact() {
     ];
 
     return (
-        <section id="contact" className="py-24 md:py-32 relative">
+        <section id="contact" className="py-16 md:py-32 relative">
             {/* Background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div

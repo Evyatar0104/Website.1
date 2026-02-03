@@ -24,12 +24,12 @@ export function Footer() {
     };
 
     return (
-        <footer className="bg-[#0A0A0A] border-t border-white/10 pt-16 pb-8">
+        <footer className="bg-[#0A0A0A] border-t border-white/10 pt-10 md:pt-16 pb-8">
             <div className="container mx-auto px-6">
                 {/* Main Footer Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center place-items-center">
                     {/* Brand Column */}
-                    <div className="lg:col-span-1">
+                    <div className="flex flex-col items-center">
                         <Link href="/" className="flex items-center gap-3 mb-6">
                             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#007BFF] to-[#00F2FF] flex items-center justify-center">
                                 <span className="text-black font-black text-lg">TP</span>
@@ -55,37 +55,22 @@ export function Footer() {
                         </div>
                     </div>
 
-                    {/* Services Column */}
-                    <div>
-                        <h4 className="text-white font-bold mb-6">שירותים</h4>
-                        <ul className="space-y-3">
-                            {footerLinks.services.map((link) => (
-                                <li key={link.label}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-white/50 hover:text-[#00F2FF] transition-colors"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
                     {/* Company Column */}
                     <div>
                         <h4 className="text-white font-bold mb-6">החברה</h4>
                         <ul className="space-y-3">
-                            {footerLinks.company.map((link) => (
-                                <li key={link.label}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-white/50 hover:text-[#00F2FF] transition-colors"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
+                            {footerLinks.company
+                                .filter(link => link.label !== "בלוג")
+                                .map((link) => (
+                                    <li key={link.label}>
+                                        <Link
+                                            href={link.href}
+                                            className="text-white/50 hover:text-[#00F2FF] transition-colors"
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    </li>
+                                ))}
                         </ul>
                     </div>
 
