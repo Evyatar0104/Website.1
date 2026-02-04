@@ -48,8 +48,8 @@ export function Header() {
                     {/* Mobile Logo */}
                     <div className="relative w-11 h-11 md:hidden hover:scale-105 transition-transform rounded-xl overflow-hidden shadow-[0_0_15px_rgba(0,0,0,0.3)] border border-white/10">
                         <Image
-                            src="/Icon.png"
-                            alt="Tech-Precision"
+                            src="/favicon.png"
+                            alt="BlueShor"
                             fill
                             className="object-cover"
                             priority
