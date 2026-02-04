@@ -34,7 +34,7 @@ const Icons = {
     floating: () => (
         <div className="relative w-full h-full">
             <Image
-                src="/floating-logo.png"
+                src="/NewColorLogo.png"
                 alt="Floating Logo"
                 fill
                 className="object-contain"

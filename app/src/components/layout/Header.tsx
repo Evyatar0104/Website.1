@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "../ui/Button";
+
 
 export function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -48,7 +48,7 @@ export function Header() {
                     {/* Mobile Logo */}
                     <div className="relative w-11 h-11 md:hidden hover:scale-105 transition-transform rounded-xl overflow-hidden shadow-[0_0_15px_rgba(0,0,0,0.3)] border border-white/10">
                         <Image
-                            src="/favicon.png"
+                            src="/IconNew.png"
                             alt="BlueShor"
                             fill
                             className="object-cover"
@@ -59,7 +59,7 @@ export function Header() {
                     {/* Desktop Logo */}
                     <div className="relative w-[300px] h-[75px] hidden md:block hover:brightness-110 transition-all">
                         <Image
-                            src="/FullLogo.png"
+                            src="/NewColorLogo.png"
                             alt="Tech-Precision"
                             fill
                             className="object-contain object-left"

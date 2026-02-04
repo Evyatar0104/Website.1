@@ -78,7 +78,14 @@ export function Portfolio() {
     );
 }
 
-function PortfolioCard({ project, index }: { project: any, index: number }) {
+interface Project {
+    id: number;
+    title: string;
+    image: string;
+    url: string;
+}
+
+function PortfolioCard({ project, index }: { project: Project, index: number }) {
     const [isHovered, setIsHovered] = useState(false);
 
     return (

@@ -41,16 +41,17 @@ export function Contact() {
     }, [isDropdownOpen]);
 
     useEffect(() => {
-        const handleSetPackage = (e: CustomEvent<{ package: string }>) => {
-            setFormData(prev => ({ ...prev, package: e.detail.package }));
+        const handleSetPackage = (e: Event) => {
+            const detail = (e as CustomEvent<{ package: string }>).detail;
+            setFormData(prev => ({ ...prev, package: detail.package }));
             const element = document.getElementById("contact");
             if (element) {
                 element.scrollIntoView({ behavior: "smooth" });
             }
         };
 
-        window.addEventListener("set-contact-package" as any, handleSetPackage);
-        return () => window.removeEventListener("set-contact-package" as any, handleSetPackage);
+        window.addEventListener("set-contact-package", handleSetPackage);
+        return () => window.removeEventListener("set-contact-package", handleSetPackage);
     }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {

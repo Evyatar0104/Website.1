@@ -22,7 +22,7 @@ export function Footer() {
                         <Link href="/" className="flex items-center gap-3 mb-6 relative hover:scale-105 transition-transform">
                             <div className="relative w-[280px] h-[85px]">
                                 <Image
-                                    src="/LogoWhite.png"
+                                    src="/NewColorLogo.png"
                                     alt="BlueShor"
                                     fill
                                     className="object-contain"

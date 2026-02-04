@@ -111,7 +111,14 @@ export function Pricing() {
     );
 }
 
-function PricingCard({ tier, index }: { tier: any, index: number }) {
+interface Tier {
+    name: string;
+    price: string;
+    features: string[];
+    recommended: boolean;
+}
+
+function PricingCard({ tier, index }: { tier: Tier, index: number }) {
     const cardRef = React.useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = React.useState(false);
 
