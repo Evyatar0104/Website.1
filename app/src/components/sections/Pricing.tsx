@@ -113,16 +113,15 @@ export function Pricing() {
 
 function PricingCard({ tier, index }: { tier: any, index: number }) {
     const cardRef = React.useRef<HTMLDivElement>(null);
-    const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = React.useState(false);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (cardRef.current) {
             const rect = cardRef.current.getBoundingClientRect();
-            setMousePosition({
-                x: e.clientX - rect.left,
-                y: e.clientY - rect.top,
-            });
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            cardRef.current.style.setProperty("--mouse-x", `${x}px`);
+            cardRef.current.style.setProperty("--mouse-y", `${y}px`);
         }
     };
 
@@ -135,14 +134,14 @@ function PricingCard({ tier, index }: { tier: any, index: number }) {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             className={`relative group ${tier.recommended
                 ? "md:-mt-4 md:mb-4 lg:-mt-8 lg:mb-8"
                 : ""
                 }`}
         >
             {/* Card Decoration */}
-            <div className={`absolute rounded-[2.5rem] transition-opacity duration-500 ${tier.recommended
+            <div className={`absolute rounded-[2.5rem] transition-opacity duration-500 will-change-transform ${tier.recommended
                 ? "inset-[-1px] bg-gradient-to-b from-cyan-400 to-blue-600 opacity-100 blur-sm"
                 : tier.name === "בסיסי"
                     ? "inset-[-1px] bg-gradient-to-r from-neutral-600 via-neutral-300 to-neutral-600 bg-[length:200%_100%] animate-background-shine opacity-100 group-hover:animate-none"
@@ -152,7 +151,7 @@ function PricingCard({ tier, index }: { tier: any, index: number }) {
                 }`} />
 
 
-            <div className={`relative h-full rounded-[2.5rem] p-8 pb-10 flex flex-col items-center text-center backdrop-blur-3xl transition-all duration-500 overflow-hidden ${tier.recommended
+            <div className={`relative h-full rounded-[2.5rem] p-8 pb-10 flex flex-col items-center text-center backdrop-blur-3xl transition-all duration-500 overflow-hidden transform-gpu filter-none md:backdrop-blur-3xl ${tier.recommended
                 ? "bg-gradient-to-b from-[#0f172a] to-[#020617]"
                 : tier.name === "Max"
                     ? "bg-gradient-to-b from-[#1c1c1e] to-black shadow-2xl border border-white/5"
@@ -261,7 +260,7 @@ function PricingCard({ tier, index }: { tier: any, index: number }) {
                         <div
                             className={`absolute inset-0 rounded-[2rem] pointer-events-none transition-opacity duration-500 ${isHovered ? "opacity-100" : "opacity-0"}`}
                             style={{
-                                background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.08), transparent 40%)`
+                                background: `radial-gradient(400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(255,255,255,0.08), transparent 40%)`
                             }}
                         />
                     </>
@@ -344,7 +343,7 @@ function PricingCard({ tier, index }: { tier: any, index: number }) {
                                     className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-neutral-950/90 px-3 py-3 text-sm font-bold text-white backdrop-blur-3xl"
                                     onClick={() => {
                                         const event = new CustomEvent('set-contact-package', {
-                                            detail: { package: "אני רוצה להיות לקוח מקס" }
+                                            detail: { package: "אני מעוניין להיות לקוח מקס" }
                                         });
                                         window.dispatchEvent(event);
                                     }}
