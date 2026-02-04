@@ -18,15 +18,19 @@ const assistant = Assistant({
 });
 
 export const metadata: Metadata = {
-  title: "האדריכל הדיגיטלי | Tech-Precision",
-  description: "אנחנו בונים תשתיות דיגיטליות בביצועי קצה. עיצוב ופיתוח אתרים מקצועי עם דגש על ביצועים, דיוק ויוקרה.",
-  keywords: ["עיצוב אתרים", "פיתוח אתרים", "דיגיטל", "ביצועים", "ישראל"],
-  authors: [{ name: "Tech-Precision" }],
+  title: "BlueShor - בלו שור",
+  description: "BlueShor - בלו שור. האדריכל הדיגיטלי. אנחנו בונים תשתיות דיגיטליות בביצועי קצה. עיצוב ופיתוח אתרים מקצועי עם דגש על ביצועים, דיוק ויוקרה.",
+  keywords: ["BlueShor", "בלו שור", "בלושור", "עיצוב אתרים", "פיתוח אתרים", "דיגיטל", "ביצועים", "ישראל"],
+  authors: [{ name: "BlueShor" }],
   openGraph: {
-    title: "האדריכל הדיגיטלי | Tech-Precision",
-    description: "אנחנו בונים תשתיות דיגיטליות בביצועי קצה",
+    title: "BlueShor - בלו שור",
+    description: "BlueShor - בלו שור. האדריכל הדיגיטלי. אנחנו בונים תשתיות דיגיטליות בביצועי קצה",
     locale: "he_IL",
     type: "website",
+  },
+  icons: {
+    icon: "/Icon.png",
+    apple: "/Icon.png",
   },
 };
 

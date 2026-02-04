@@ -80,9 +80,9 @@ export function Pricing() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="font-black bg-gradient-to-l from-[#007BFF] to-[#00F2FF] bg-clip-text text-transparent mb-2 tracking-tighter animate-gradient whitespace-nowrap"
+                        className="font-black bg-gradient-to-l from-[#007BFF] to-[#00F2FF] bg-clip-text text-transparent mb-2 tracking-tighter animate-gradient"
                         style={{
-                            fontSize: "clamp(2.5rem, 4vw, 5rem)",
+                            fontSize: "clamp(2rem, 5vw, 5rem)",
                             lineHeight: "1.1",
                             backgroundSize: "200% 200%",
                             filter: "drop-shadow(0 0 40px rgba(0, 242, 255, 0.3))",
@@ -143,12 +143,12 @@ function PricingCard({ tier, index }: { tier: any, index: number }) {
         >
             {/* Card Decoration */}
             <div className={`absolute rounded-[2.5rem] transition-opacity duration-500 ${tier.recommended
-                ? "-inset-[1px] bg-gradient-to-b from-cyan-400 to-blue-600 opacity-100 blur-sm"
+                ? "inset-[-1px] bg-gradient-to-b from-cyan-400 to-blue-600 opacity-100 blur-sm"
                 : tier.name === "בסיסי"
-                    ? "-inset-[1px] bg-gradient-to-r from-neutral-600 via-neutral-300 to-neutral-600 bg-[length:200%_100%] animate-background-shine opacity-100 group-hover:animate-none"
+                    ? "inset-[-1px] bg-gradient-to-r from-neutral-600 via-neutral-300 to-neutral-600 bg-[length:200%_100%] animate-background-shine opacity-100 group-hover:animate-none"
                     : tier.name === "Max"
-                        ? "-inset-[1px] bg-gradient-to-r from-white/10 via-white/20 to-white/10 animate-background-shine opacity-100"
-                        : "-inset-[1px] bg-white/10 opacity-50 group-hover:opacity-100"
+                        ? "inset-[-1px] bg-gradient-to-r from-white/10 via-white/20 to-white/10 animate-background-shine opacity-100"
+                        : "inset-[-1px] bg-white/10 opacity-50 group-hover:opacity-100"
                 }`} />
 
 
@@ -340,15 +340,33 @@ function PricingCard({ tier, index }: { tier: any, index: number }) {
                                     animate={{ rotate: 360 }}
                                     transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                                 />
-                                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-neutral-950/90 px-3 py-3 text-sm font-bold text-white backdrop-blur-3xl">
+                                <span
+                                    className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-neutral-950/90 px-3 py-3 text-sm font-bold text-white backdrop-blur-3xl"
+                                    onClick={() => {
+                                        const event = new CustomEvent('set-contact-package', {
+                                            detail: { package: "אני רוצה להיות לקוח מקס" }
+                                        });
+                                        window.dispatchEvent(event);
+                                    }}
+                                >
                                     בואו נתחיל
                                 </span>
                             </button>
                         ) : (
-                            <button className={`w-full py-3 rounded-full font-bold transition-all duration-300 relative overflow-hidden group/btn text-sm ${tier.recommended
-                                ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] hover:scale-[1.02]"
-                                : "bg-black/40 text-white hover:bg-black/60 border border-white/5 shadow-[inset_0_0_10px_rgba(255,255,255,0.02)]"
-                                }`}>
+                            <button
+                                onClick={() => {
+                                    const packageName = tier.name === "בסיסי"
+                                        ? "אני מעוניין בחבילה בסיסית"
+                                        : "אני מעוניין בחבילת צמיחה";
+                                    const event = new CustomEvent('set-contact-package', {
+                                        detail: { package: packageName }
+                                    });
+                                    window.dispatchEvent(event);
+                                }}
+                                className={`w-full py-3 rounded-full font-bold transition-all duration-300 relative overflow-hidden group/btn text-sm ${tier.recommended
+                                    ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] hover:scale-[1.02]"
+                                    : "bg-black/40 text-white hover:bg-black/60 border border-white/5 shadow-[inset_0_0_10px_rgba(255,255,255,0.02)]"
+                                    }`}>
                                 <span className="relative z-10">בואו נתחיל</span>
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                             </button>

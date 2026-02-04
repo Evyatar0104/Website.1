@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "../ui/Button";
 
 export function Header() {
@@ -33,7 +34,7 @@ export function Header() {
                 }
       `}
         >
-            <div className="container mx-auto px-6 flex items-center justify-between">
+            <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-8 md:px-8 pl-[max(2rem,env(safe-area-inset-left))] pr-[max(2rem,env(safe-area-inset-right))]">
                 {/* Logo - Right side for RTL */}
                 {/* Logo - Right side for RTL */}
                 <Link
@@ -42,14 +43,29 @@ export function Header() {
                         e.preventDefault();
                         document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="flex items-center gap-3 group"
+                    className="flex items-center gap-3 group relative z-50"
                 >
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#007BFF] to-[#00F2FF] flex items-center justify-center group-hover:shadow-[0_0_20px_rgba(0,242,255,0.5)] transition-shadow">
-                        <span className="text-black font-black text-lg">TP</span>
+                    {/* Mobile Logo */}
+                    <div className="relative w-11 h-11 md:hidden hover:scale-105 transition-transform rounded-xl overflow-hidden shadow-[0_0_15px_rgba(0,0,0,0.3)] border border-white/10">
+                        <Image
+                            src="/Icon.png"
+                            alt="Tech-Precision"
+                            fill
+                            className="object-cover"
+                            priority
+                        />
                     </div>
-                    <span className="text-2xl font-bold text-white hidden sm:block">
-                        Tech<span className="text-[#00F2FF]">-</span>Precision
-                    </span>
+
+                    {/* Desktop Logo */}
+                    <div className="relative w-[300px] h-[75px] hidden md:block hover:brightness-110 transition-all">
+                        <Image
+                            src="/FullLogo.png"
+                            alt="Tech-Precision"
+                            fill
+                            className="object-contain object-left"
+                            priority
+                        />
+                    </div>
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -77,7 +93,7 @@ export function Header() {
                 {/* Mobile Menu Button */}
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
-                    className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+                    className="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 ml-2 relative z-50"
                     aria-label="תפריט"
                 >
                     <span
@@ -101,27 +117,28 @@ export function Header() {
           ${menuOpen ? "max-h-96 py-6" : "max-h-0 py-0"}
         `}
             >
-                <nav className="container mx-auto px-6 flex flex-col gap-4">
+                <nav className="flex flex-col gap-6 py-8 pr-8 pl-16 pl-[max(4rem,env(safe-area-inset-left))] pr-[max(2rem,env(safe-area-inset-right))] items-center">
                     {navLinks.map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}
                             onClick={() => setMenuOpen(false)}
-                            className="text-white/70 hover:text-[#00F2FF] transition-colors font-medium text-lg py-2"
+                            className="text-white/70 hover:text-[#00F2FF] transition-colors font-medium text-2xl py-2 text-center"
                         >
                             {link.label}
                         </Link>
                     ))}
-                    <button
+                    <Link
+                        href="#pricing"
                         onClick={(e) => {
                             e.preventDefault();
-                            setMenuOpen(false); // Close menu on click
+                            setMenuOpen(false);
                             document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
                         }}
-                        className="bg-gradient-to-r from-[#007BFF] to-[#01F2FF] text-black font-bold px-6 py-2 rounded-xl text-sm transition-all text-center"
+                        className="text-white/70 hover:text-[#00F2FF] transition-colors font-medium text-2xl py-2 text-center"
                     >
-                        אני רוצה אתר!
-                    </button>
+                        מחירון
+                    </Link>
                 </nav>
             </div>
         </header>
