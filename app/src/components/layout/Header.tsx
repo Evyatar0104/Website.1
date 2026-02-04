@@ -117,7 +117,7 @@ export function Header() {
           ${menuOpen ? "max-h-96 py-6" : "max-h-0 py-0"}
         `}
             >
-                <nav className="flex flex-col gap-6 py-8 pr-8 pl-16 pl-[max(4rem,env(safe-area-inset-left))] pr-[max(2rem,env(safe-area-inset-right))] items-center">
+                <nav className="flex flex-col gap-6 py-8 px-8 pl-[max(2rem,env(safe-area-inset-left))] pr-[max(2rem,env(safe-area-inset-right))] items-center">
                     {navLinks.map((link) => (
                         <Link
                             key={link.href}
