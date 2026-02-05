@@ -34,7 +34,7 @@ const Icons = {
     floating: () => (
         <div className="relative w-full h-full">
             <Image
-                src="/OrbitLogo.png"
+                src="/OrbitLogo.webp"
                 alt="Floating Logo"
                 fill
                 className="object-contain"

@@ -9,25 +9,25 @@ const projects = [
     {
         id: 1,
         title: "יועץ פיננסי",
-        image: "/hero/screenshot-1.png",
+        image: "/hero/screenshot-1.webp",
         url: "https://finance-test-alpha.vercel.app/",
     },
     {
         id: 2,
         title: "חברת אינסטלציה",
-        image: "/hero/screenshot-4.png",
+        image: "/hero/screenshot-4.webp",
         url: "https://plumbers123.vercel.app/",
     },
     {
         id: 3,
         title: "מורה פרטי",
-        image: "/hero/screenshot-2.png",
+        image: "/hero/screenshot-2.webp",
         url: "https://uridavidteacher.vercel.app/",
     },
     {
         id: 4,
         title: "עורכת דין",
-        image: "/hero/screenshot-5.png",
+        image: "/hero/screenshot-5.webp",
         url: "https://ziona-site.vercel.app/",
     },
 ];

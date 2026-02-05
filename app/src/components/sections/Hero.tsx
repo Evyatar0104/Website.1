@@ -24,11 +24,11 @@ export function Hero() {
 
     // Define images
     const desktopImages = [
-        "/hero/screenshot-1.png",
-        "/hero/screenshot-2.png",
-        "/hero/screenshot-3.png",
-        "/hero/screenshot-4.png",
-        "/hero/screenshot-5.png",
+        "/hero/screenshot-1.webp",
+        "/hero/screenshot-2.webp",
+        "/hero/screenshot-3.webp",
+        "/hero/screenshot-4.webp",
+        "/hero/screenshot-5.webp",
     ];
 
     // Mobile: 3 distinct images as requested
