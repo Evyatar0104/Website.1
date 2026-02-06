@@ -28,10 +28,11 @@ export const metadata: Metadata = {
     locale: "he_IL",
     type: "website",
   },
-  icons: {
-    icon: "/IconNew-Photoroom.ico",
-    apple: "/IconNew-Photoroom.ico",
-  },
+  icons: [
+    { rel: "icon", url: "/IconNew.webp", type: "image/webp" },
+    { rel: "icon", url: "/IconNew-Photoroom.ico", sizes: "any" }, // Fallback
+    { rel: "apple-touch-icon", url: "/IconNew.webp" },
+  ],
 };
 
 export default function RootLayout({

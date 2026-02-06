@@ -112,8 +112,9 @@ export function Hero() {
                                 alt={`Project ${i + 1}`}
                                 fill
                                 className="object-cover opacity-60 group-hover:opacity-100"
-                                sizes="(max-width: 800px) 100vw, 800px"
-                                priority={i < 4}
+                                sizes="(max-width: 768px) 300px, 800px"
+                                priority={i === 0}
+                                quality={85}
                             />
                             {/* Overlay glow */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
