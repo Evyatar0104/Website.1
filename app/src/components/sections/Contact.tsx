@@ -199,13 +199,24 @@ export function Contact() {
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="package" className="block text-white/80 mb-2 text-sm font-medium">
+                                        <label id="package-label" htmlFor="package" className="block text-white/80 mb-2 text-sm font-medium">
                                             באיזו חבילה אתה מעוניין?
                                         </label>
-                                        <div className="relative package-dropdown-container">
-                                            <div
+                                        <div
+                                            className="relative package-dropdown-container"
+                                            onKeyDown={(e) => {
+                                                if (e.key === 'Escape') {
+                                                    setIsDropdownOpen(false);
+                                                }
+                                            }}
+                                        >
+                                            <button
+                                                type="button"
+                                                aria-haspopup="listbox"
+                                                aria-expanded={isDropdownOpen}
+                                                aria-labelledby="package-label"
                                                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                                                className={`w-full px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white cursor-pointer transition-all duration-500 relative overflow-hidden flex items-center justify-between group ${formData.package === "אני מעוניין בחבילה בסיסית"
+                                                className={`w-full px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white cursor-pointer transition-all duration-500 relative overflow-hidden flex items-center justify-between group text-right ${formData.package === "אני מעוניין בחבילה בסיסית"
                                                     ? "bg-neutral-900/60"
                                                     : formData.package === "אני מעוניין בחבילת צמיחה"
                                                         ? "bg-gradient-to-b from-[#0f172a] to-[#020617]"
@@ -258,22 +269,36 @@ export function Contact() {
                                                 >
                                                     <path d="M6 9l6 6 6-6" />
                                                 </svg>
-                                            </div>
+                                            </button>
 
                                             {isDropdownOpen && (
-                                                <div className="absolute top-full left-0 w-full mt-2 bg-[#0A0A0A] border border-white/10 rounded-2xl overflow-hidden z-50 shadow-2xl backdrop-blur-xl">
+                                                <div
+                                                    role="listbox"
+                                                    aria-labelledby="package-label"
+                                                    className="absolute top-full left-0 w-full mt-2 bg-[#0A0A0A] border border-white/10 rounded-2xl overflow-hidden z-50 shadow-2xl backdrop-blur-xl"
+                                                >
                                                     {[
                                                         "אני מעוניין בחבילה בסיסית",
                                                         "אני מעוניין בחבילת צמיחה",
                                                         "אני מעוניין להיות לקוח מקס"
-                                                    ].map((pkg) => (
+                                                    ].map((pkg, index) => (
                                                         <div
                                                             key={pkg}
+                                                            role="option"
+                                                            aria-selected={formData.package === pkg}
+                                                            tabIndex={0}
                                                             onClick={() => {
                                                                 setFormData(prev => ({ ...prev, package: pkg }));
                                                                 setIsDropdownOpen(false);
                                                             }}
-                                                            className={`px-6 py-3 text-white/80 hover:text-white hover:bg-white/5 cursor-pointer transition-colors ${formData.package === pkg ? "bg-white/10 text-white" : ""
+                                                            onKeyDown={(e) => {
+                                                                if (e.key === 'Enter' || e.key === ' ') {
+                                                                    e.preventDefault();
+                                                                    setFormData(prev => ({ ...prev, package: pkg }));
+                                                                    setIsDropdownOpen(false);
+                                                                }
+                                                            }}
+                                                            className={`px-6 py-3 text-white/80 hover:text-white hover:bg-white/5 cursor-pointer transition-colors outline-none focus:bg-white/10 ${formData.package === pkg ? "bg-white/10 text-white" : ""
                                                                 }`}
                                                         >
                                                             {pkg}

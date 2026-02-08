@@ -8,6 +8,20 @@ export async function sendEmail(formData: FormData) {
   const packageName = formData.get("package") as string;
   const message = formData.get("message") as string;
 
+  // Basic Input Sanitization & Validation
+  if (!name || !email || !message) {
+    return { success: false, error: 'Missing required fields' };
+  }
+
+  if (name.length > 100 || email.length > 100 || message.length > 5000) {
+    return { success: false, error: 'Input too long' };
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return { success: false, error: 'Invalid email address' };
+  }
+
   console.log("Attempting to send form to Formspree:", { name, email });
 
   try {

@@ -51,7 +51,7 @@ export function About() {
             title: "מהירות",
             description: "אנחנו מתחייבים לספק לכם את האתר במהירות שיא, עד 5 ימי עסקים.",
             icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 6 12 12 16 14" />
                 </svg>
@@ -61,7 +61,7 @@ export function About() {
             title: "ביצועים",
             description: "השימוש בכלי בינה מלאכותית מאפשר לקוד שלנו להיות יעיל במיוחד, מה שנותן לך יתרון אסטרטגי במנועי החיפוש",
             icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                 </svg>
             ),
@@ -70,7 +70,7 @@ export function About() {
             title: "מחיר",
             description: "היעילות בתהליך העבודה שלנו מאפשרת לתת לך בדיוק את מה שצריך, בחצי מהמחיר ורבע מהזמן.",
             icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                     <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
                     <line x1="7" y1="7" x2="7.01" y2="7" />
                 </svg>

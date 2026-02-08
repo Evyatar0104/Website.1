@@ -45,6 +45,9 @@ export function StatusModal({ isOpen, status, onClose, title, message }: StatusM
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="modal-title"
                         className="relative bg-[#0A0A0A] border border-white/10 rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl overflow-hidden"
                     >
                         {/* Background Shine */}
@@ -84,7 +87,7 @@ export function StatusModal({ isOpen, status, onClose, title, message }: StatusM
                             </div>
                         )}
 
-                        <h3 className="text-2xl font-bold text-white mb-2">
+                        <h3 id="modal-title" className="text-2xl font-bold text-white mb-2">
                             {title || (status === 'success' ? "ההודעה נשלחה!" : "שגיאה")}
                         </h3>
                         <p className="text-white/60 mb-8">

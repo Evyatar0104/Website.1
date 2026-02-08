@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Heebo, Assistant } from "next/font/google";
 import "./globals.css";
+import { LegalConsent } from "@/components/layout/LegalConsent";
+
 
 // Hebrew-centric typography per brand identity
 const heebo = Heebo({
@@ -35,6 +37,7 @@ export const metadata: Metadata = {
   ],
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -46,6 +49,8 @@ export default function RootLayout({
         className={`${heebo.variable} ${assistant.variable} antialiased`}
       >
         {children}
+        <LegalConsent />
+        <script src="https://cdn.enable.co.il/licenses/enable-L53921vtpbn89wtg-0226-79424/init.js"></script>
       </body>
     </html>
   );

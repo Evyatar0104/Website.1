@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -57,16 +59,22 @@ export function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-white/30 text-sm">
+                    <p className="text-white/70 text-sm">
                         © 2026 BlueShor. כל הזכויות שמורות.
                     </p>
-                    <div className="flex gap-6 text-sm">
-                        <Link href="#" className="text-white/30 hover:text-white/60 transition-colors">
+                    <div className="flex flex-wrap justify-center gap-6 text-sm">
+                        <Link href="/privacy-policy" className="text-white/70 hover:text-white transition-colors">
                             מדיניות פרטיות
                         </Link>
-                        <Link href="#" className="text-white/30 hover:text-white/60 transition-colors">
+                        <Link href="/terms" className="text-white/70 hover:text-white transition-colors">
                             תנאי שימוש
                         </Link>
+                        <button
+                            className="text-white/70 hover:text-white transition-colors"
+                            onClick={() => alert("הצהרת נגישות בקרוב...")}
+                        >
+                            הצהרת נגישות
+                        </button>
                     </div>
                 </div>
             </div>

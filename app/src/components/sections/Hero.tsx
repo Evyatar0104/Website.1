@@ -109,7 +109,7 @@ export function Hero() {
                         >
                             <Image
                                 src={src}
-                                alt={`Project ${i + 1}`}
+                                alt={`Project screenshot ${i + 1}`}
                                 fill
                                 className="object-cover opacity-60 group-hover:opacity-100"
                                 sizes="(max-width: 768px) 300px, 800px"
@@ -141,9 +141,9 @@ export function Hero() {
             <div className="relative z-10 container mx-auto px-6 text-center flex-grow flex flex-col items-center justify-center pt-16 md:pt-0">
                 {/* Main Headline Wrapper */}
                 <div className="flex flex-col gap-0 w-full">
-                    <h2 className="text-3xl md:text-[2vw] font-bold text-white tracking-tighter opacity-100">
+                    <h1 className="!text-4xl !md:text-6xl !font-bold text-white tracking-tighter opacity-100">
                         אנחנו בונים אתרים ממירים
-                    </h2>
+                    </h1>
                     <div className="flex justify-center w-full items-center -mt-2 md:-mt-4">
                         <WordRotate
                             words={morphingTexts}
@@ -161,10 +161,8 @@ export function Hero() {
                 {/* CTA Buttons - Centered Group */}
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 mt-32 md:mt-28 z-20 w-full px-4 md:px-0">
                     {/* Right: How it works */}
-                    <Link href="#about">
-                        <button className="px-6 py-3 text-base md:px-10 md:py-5 md:text-xl rounded-full border border-white/10 hover:border-white/40 bg-black/40 backdrop-blur-xl text-white font-bold transition-all duration-300 hover:scale-105 hover:bg-black/60 shadow-xl min-w-[180px] md:min-w-[220px]">
-                            איך זה קורה?
-                        </button>
+                    <Link href="#about" className="px-6 py-3 text-base md:px-10 md:py-5 md:text-xl rounded-full border border-white/10 hover:border-white/40 bg-black/40 backdrop-blur-xl text-white font-bold transition-all duration-300 hover:scale-105 hover:bg-black/60 shadow-xl min-w-[180px] md:min-w-[220px] text-center inline-block">
+                        איך זה קורה?
                     </Link>
 
                     {/* Center: Blue CTA */}
@@ -183,10 +181,8 @@ export function Hero() {
                     </button>
 
                     {/* Left: See More */}
-                    <Link href="#portfolio">
-                        <button className="px-6 py-3 text-base md:px-10 md:py-5 md:text-xl rounded-full border border-white/10 hover:border-white/40 bg-black/40 backdrop-blur-xl text-white font-bold transition-all duration-300 hover:scale-105 hover:bg-black/60 shadow-xl min-w-[180px] md:min-w-[220px]">
-                            אני רוצה לראות עוד
-                        </button>
+                    <Link href="#portfolio" className="px-6 py-3 text-base md:px-10 md:py-5 md:text-xl rounded-full border border-white/10 hover:border-white/40 bg-black/40 backdrop-blur-xl text-white font-bold transition-all duration-300 hover:scale-105 hover:bg-black/60 shadow-xl min-w-[180px] md:min-w-[220px] text-center inline-block">
+                        אני רוצה לראות עוד
                     </Link>
                 </div>
 
